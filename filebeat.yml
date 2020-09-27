@@ -1,0 +1,21 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/*.log
+    - home/lir/datetime-app/logs.txt
+    
+setup.kibana:
+  host: ["localhost:5601"]
+
+setup.elasticsearch:
+  host: ["localhost:9200"]
+
+setup.logstash:
+  hosts: ["localhost:5044"]
+  
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+ 
+output.logstash:
+  hosts: ["localhost:5044"]
