@@ -1,0 +1,20 @@
+elk:
+  image: sebp/elk
+  ports:
+    - 9200:9200
+    - 5601:5601
+    - 5044:5044
+
+filebeat:
+  image: elastic/filebeat:7.9.1
+  ports:
+    - 9200:9200
+    - 5044:5044
+    - 5601:5601
+  links:
+    - elk
+
+datetime:
+  image: datetime
+  links:
+    - filebeat
